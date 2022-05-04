@@ -1,0 +1,66 @@
+server:
+  host: localhost
+  port: 8082
+  
+mongodb:
+  cluster:
+    nodes:
+      - localhost:27017
+      - localhost:27027
+      - localhost:27037
+  databaseName: e-commerce
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka
+    registerWithEureka: true
+    fetch-registry: true
+  instance:
+    preferIpAddress: true
+    forceHostAddress: localhost
+
+spring:
+  autoconfigure:    exclude:    - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+    - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+    - org.springframework.cloud.gateway.config.GatewayRedisAutoConfiguration
+  application:
+    name: ecommerce-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: order-router
+        uri: lb://ecommerce-order
+        predicates:
+        - Path=/order/
+      - id: inventory-router
+        uri: lb://ecommerce-inventory
+        predicates:
+        - Path=/inventory/
+        - Path=/inventories
+      - id: user-router
+        uri: lb://ecommerce-user
+        predicates:
+        - Path=/user/
+      loadbalancer:        use404: true
+  main:
+    web-application-type: reactive
+    
+jwt:
+  renewal-threshlod: 50000
+  
+redis:
+  cluster:
+    nodes:
+      - 127.0.0.1:6379
+      - 127.0.0.1:6389
+      - 127.0.0.1:6399
+      - 127.0.0.1:6378
+      - 127.0.0.1:6388
+      - 127.0.0.1:6398
+        
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

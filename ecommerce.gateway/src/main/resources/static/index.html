@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Order</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="orderManagement.js"></script>
+        <script src="eventsource.min.js"></script>
+    </head>
+
+    <body>
+    	<div>
+            <textarea id="searchDetailPayload" cols="50" rows="10" >
+            {
+			    "field" : "brand",
+			    "input" : {
+			            "pattern" : "*",
+			            "fuzzyLevel" : 0
+			        }
+			}
+            </textarea>
+            <input id="searchCatalogue" type="submit" value="Search"/>
+        </div>
+    	<div>
+    	<table id="catalogue" class="display" style="width:100%">
+    		<thead>
+				<tr>
+					<th>Product Id</th>
+					<th>Category</th>
+					<th>Brand</th>
+					<th>Price</th>
+					<th>Stock</th>
+					<th>Type</th>
+					<th>Colour</th>
+				</tr>
+			</thead>
+    	</table>
+    	</div>
+        <div>
+            <textarea id="orderDetailPayload" cols="50" rows="10" >Order Detail JSON</textarea>
+            <input id="createOrder" type="submit" value="Create"/>
+        </div>
+        <div>
+        	<p id="updateContainer"></p>
+        	<ul id="statuses">
+        	</ul>
+        </div>
+    </body>
+</html>

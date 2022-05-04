@@ -1,0 +1,32 @@
+server:
+  host: localhost
+  port: 8085
+  
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: ecommerce-catalogue
+  
+mongodb:
+  cluster:
+    nodes:
+      - localhost:27017
+      - localhost:27027
+      - localhost:27037
+  databaseName: e-commerce
+  
+solr:
+  zk-nodes:
+    - 127.0.0.1:2182
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka
+    registerWithEureka: true
+    fetch-registry: true
+  instance:
+    preferIpAddress: true
+    forceHostAddress: localhost
+    

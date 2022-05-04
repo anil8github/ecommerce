@@ -1,0 +1,10 @@
+#spring.data.mongodb.host=localhost
+#spring.data.mongodb.port=27017
+mongodb.host=localhost
+mongodb.port=27017
+mongodb.databaseName=e-commerce
+
+#To stop default server and start Netty Reactor server from HttpServerConfiguration
+spring.main.web-application-type=none
+server.host=localhost
+server.port=8086

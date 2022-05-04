@@ -1,0 +1,37 @@
+server:
+  host: localhost
+  port: 8089
+  
+mongodb:
+  cluster:
+    nodes:
+      - localhost:27017
+      - localhost:27027
+      - localhost:27037
+  databaseName: e-commerce
+  
+spring:
+  application:
+    name: ecommerce-inventory
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3307/inventory
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.jdbc.Driver 
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka
+  instance:
+    preferIpAddress: true
+    hostname: localhost
+      
+      
+

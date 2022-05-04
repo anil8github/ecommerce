@@ -1,0 +1,25 @@
+server:
+  host: localhost
+  port: 8086
+  
+spring:
+  main:
+    web-application-type: none
+  application:
+    name: ecommerce-user
+    
+mongodb:
+  host: localhost
+  port: 27017
+  databaseName: e-commerce
+  
+jwt:
+  ttl: 86400000
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka
+  instance:
+    preferIpAddress: true
+    forceHostAddress: localhost

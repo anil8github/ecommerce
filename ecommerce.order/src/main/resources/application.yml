@@ -1,0 +1,22 @@
+server:
+  port: 8088
+  
+spring:
+  application:
+    name: ecommerce-order
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  datasource:    url: jdbc:mysql://localhost:3306/orders
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.jdbc.Driver 
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka
+  instance:
+    preferIpAddress: true      
+
